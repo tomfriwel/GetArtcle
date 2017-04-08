@@ -15,6 +15,7 @@
 		CF6009621E978BBA00674099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6009601E978BBA00674099 /* LaunchScreen.storyboard */; };
 		CF60096D1E978BBA00674099 /* GetArticleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF60096C1E978BBA00674099 /* GetArticleTests.m */; };
 		CF6009781E978BBA00674099 /* GetArticleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6009771E978BBA00674099 /* GetArticleUITests.m */; };
+		CF6009861E9792B000674099 /* PocketHTML in Resources */ = {isa = PBXBuildFile; fileRef = CF6009851E9792B000674099 /* PocketHTML */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		CF6009731E978BBA00674099 /* GetArticleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetArticleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6009771E978BBA00674099 /* GetArticleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetArticleUITests.m; sourceTree = "<group>"; };
 		CF6009791E978BBA00674099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6009851E9792B000674099 /* PocketHTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PocketHTML; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		CF6009511E978BBA00674099 /* GetArticle */ = {
 			isa = PBXGroup;
 			children = (
+				CF6009851E9792B000674099 /* PocketHTML */,
 				CF6009551E978BBA00674099 /* AppDelegate.h */,
 				CF6009561E978BBA00674099 /* AppDelegate.m */,
 				CF6009581E978BBA00674099 /* ViewController.h */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6009621E978BBA00674099 /* LaunchScreen.storyboard in Resources */,
+				CF6009861E9792B000674099 /* PocketHTML in Resources */,
 				CF60095F1E978BBA00674099 /* Assets.xcassets in Resources */,
 				CF60095D1E978BBA00674099 /* Main.storyboard in Resources */,
 			);

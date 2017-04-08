@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	</head>
+    <body>
+        123
+    </body>
+</html>
+<script src="./js/JSDOMParser.js"></script>
+<script src="./js/Readability.js"></script>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script>
+  function getArticleContent(html, url) {
+    var dom = document.implementation.createHTMLDocument("");
+    var head = dom.createElement( 'head' );
+    var body = document.createElement( 'body' );
+    dom.body.innerHTML = bodyHtml;
+
+    var loc = getLocation(url);
+    var uri = {
+      spec: loc.href,
+      host: loc.host,
+      prePath: loc.protocol + "//" + loc.host,
+      scheme: loc.protocol.substr(0, loc.protocol.indexOf(":")),
+      pathBase: loc.protocol + "//" + loc.host + loc.pathname.substr(0, loc.pathname.lastIndexOf("/") + 1)
+    };
+    var article = new Readability(uri, dom).parse();
+    if (article) {
+      document.body.innerHTML = article.content;
+    }
+  }
+
+  var getLocation = function(href) {
+    var l = document.createElement("a");
+    l.href = href;
+    return l;
+};
+function httpGet(theUrl, callback) {
+    $.get(url, callback);    
+}
+
+// var url = "https://www.raywenderlich.com/14172/how-to-parse-html-on-ios";
+var url = "https://www.theplayerstribune.com/kenyon-martin-the-5-players-everyone-hated-playing-against/";
+// var url = "http://www.ifanr.com/814983";
+// var url = "http://www.ifanr.com/815438";
+// var url = "http://www.jue.so/html/publish/20160901/";
+
+httpGet(url, function(html){
+    var bodyHtml = /<body.*?>([\s\S]*)<\/body>/.exec(html)[1];
+
+    var dom = document.implementation.createHTMLDocument("");
+    var head = dom.createElement( 'head' );
+    var body = document.createElement( 'body' );
+    dom.body.innerHTML = bodyHtml;
+
+    var loc = getLocation(url);
+    var uri = {
+      spec: loc.href,
+      host: loc.host,
+      prePath: loc.protocol + "//" + loc.host,
+      scheme: loc.protocol.substr(0, loc.protocol.indexOf(":")),
+      pathBase: loc.protocol + "//" + loc.host + loc.pathname.substr(0, loc.pathname.lastIndexOf("/") + 1)
+    };
+    var article = new Readability(uri, dom).parse();
+    if (article) {
+      document.body.innerHTML = article.content;
+      $("img").css({width:"100%", height:"auto"}).removeAttr("srcset");
+      var title = $("<h3>");
+      var titleString = article.title;
+      if(titleString.replace(" ", "")=="" || !titleString) {
+          titleString = /<title.*?>([\s\S]*)<\/title>/.exec(html)[1];
+      }
+      title.text(titleString);
+      $("body").prepend(title);
+    }
+});
+</script>
